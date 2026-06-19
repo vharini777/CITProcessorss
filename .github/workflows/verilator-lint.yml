@@ -1,0 +1,29 @@
+name: Verilator Lint
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Verilator
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y verilator
+
+      - name: Run custom lint action
+        id: lint
+        uses: ayishasiddiqa26/sv-lint-action@v1
+        with:
+          files: "rtl/test.sv"
+          severity: warning
+
+      - name: Show JSON result
+        run: |
+          echo '${{ steps.lint.outputs.result }}'
