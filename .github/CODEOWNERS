@@ -1,3 +1,4 @@
-*.sv @Roshni-K6
-
-.github/workflows/* @shandinimece2024
+# SystemVerilog files
+*.sv @sivasubramanianb1307
+# GitHub Actions workflows
+.github/workflows/* @sivasubramanianb1307
